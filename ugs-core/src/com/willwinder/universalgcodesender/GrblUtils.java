@@ -79,6 +79,7 @@ public class GrblUtils {
     private static final String GCODE_SET_COORDINATE_V8 = "G92 %s%s";
     
     public static final String GCODE_RETURN_TO_ZERO_LOCATION_V8 = "G90 G0 X0 Y0";
+    public static final String GCODE_RETURN_TO_MACHINE_ZERO_LOCATION_Z_V8 = "G0 G53 Z0";
     public static final String GCODE_RETURN_TO_ZERO_LOCATION_Z0_V8 = "G90 G0 Z0";
     public static final String GCODE_RETURN_TO_MAX_Z_LOCATION_V8 = "G90 G0 Z";
     
@@ -212,6 +213,7 @@ public class GrblUtils {
             commands.add(GrblUtils.GCODE_RETURN_TO_ZERO_LOCATION_Z0_V8);
         }
         commands.add(GrblUtils.GCODE_RETURN_TO_ZERO_LOCATION_V8);
+	commands.add(GrblUtils.GCODE_RETURN_TO_MACHINE_ZERO_LOCATION_Z_V8);
         
         return commands;
     }
