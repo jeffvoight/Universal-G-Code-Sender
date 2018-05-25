@@ -60,6 +60,7 @@ public interface IController {
     */
     void performHomingCycle() throws Exception;
     void returnToHome() throws Exception;
+    void returnToXYHome() throws Exception;
     void resetCoordinatesToZero() throws Exception;
     void resetCoordinateToZero(final Axis coord) throws Exception;
 

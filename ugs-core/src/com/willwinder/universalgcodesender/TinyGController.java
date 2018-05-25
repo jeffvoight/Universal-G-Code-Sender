@@ -181,6 +181,11 @@ public class TinyGController extends AbstractController {
     }
 
     @Override
+    public void returnToXYHome() throws Exception {
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
+    }
+
+    @Override
     public void killAlarmLock() throws Exception {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }

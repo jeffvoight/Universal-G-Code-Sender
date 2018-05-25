@@ -675,6 +675,11 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
     }
 
     @Override
+    public void returnToXYZero() throws Exception {
+        this.controller.returnToXYHome();
+    }
+
+    @Override
     public void resetCoordinatesToZero() throws Exception {
         this.controller.resetCoordinatesToZero();
     }

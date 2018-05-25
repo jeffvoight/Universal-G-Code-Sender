@@ -174,6 +174,14 @@ public abstract class AbstractController implements SerialCommunicatorListener, 
     }
         
     /**
+     * Returns machine to home location, throw an exception if not supported.
+     */
+    @Override
+    public void returnToXYHome() throws Exception {
+        throw new Exception(Localization.getString("controller.exception.gohome"));
+    }
+        
+    /**
      * Reset machine coordinates to zero at the current location.
      */
     @Override

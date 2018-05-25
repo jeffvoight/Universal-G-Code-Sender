@@ -205,6 +205,17 @@ public class GrblUtils {
         return commands;
     }
     
+    static protected ArrayList<String> getReturnToXYHomeCommands(final double version, final Character letter, final double zHeight) {
+        ArrayList<String> commands = new ArrayList<>();    
+        // If Z is less than zero, raise it before further movement.
+        if (zHeight < 0) {
+            commands.add(GrblUtils.GCODE_RETURN_TO_ZERO_LOCATION_Z0_V8);
+        }
+        commands.add(GrblUtils.GCODE_RETURN_TO_ZERO_LOCATION_V8);
+        
+        return commands;
+    }
+    
     static protected String getKillAlarmLockCommand(final double version, final Character letter) {
         if ((version >= 0.8 && (letter != null) && letter >= 'c')
                 || version >= 0.9) {

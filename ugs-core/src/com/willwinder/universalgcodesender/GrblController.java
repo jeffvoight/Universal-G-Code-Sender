@@ -508,6 +508,27 @@ public class GrblController extends AbstractController {
         // Throw exception
         super.returnToHome();
     }
+
+    @Override
+    public void returnToXYHome() throws Exception {
+        if (this.isCommOpen()) {
+            ArrayList<String> commands = GrblUtils.getReturnToXYHomeCommands(this.grblVersion, this.grblVersionLetter, this.controllerStatus.getWorkCoord().z);
+            if (!commands.isEmpty()) {
+                Iterator<String> iter = commands.iterator();
+                // Perform the homing commands
+                while(iter.hasNext()){
+                    String gcode = iter.next();
+                    GcodeCommand command = createCommand(gcode);
+                    this.sendCommandImmediately(command);
+                }
+                return;
+            }
+
+            restoreParserModalState();
+        }
+        // Throw exception
+        super.returnToHome();
+    }
     
     @Override
     public void killAlarmLock() throws Exception {

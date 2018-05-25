@@ -34,6 +34,7 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
 
     private final JButton resetCoordinatesButton = new JButton(Localization.getString("mainWindow.swing.resetCoordinatesButton"));
     private final JButton returnToZeroButton = new JButton(Localization.getString("mainWindow.swing.returnToZeroButton"));
+    private final JButton returnToXYZeroButton = new JButton(Localization.getString("mainWindow.swing.returnToXYZeroButton"));
     private final JButton softResetMachineControl = new JButton(Localization.getString("mainWindow.swing.softReset"));
     private final JButton performHomingCycleButton = new JButton(Localization.getString("mainWindow.swing.homeMachine"));
     private final JButton requestStateInformation = new JButton(Localization.getString("mainWindow.swing.getState"));
@@ -70,6 +71,8 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
 
         returnToZeroButton.addActionListener(this::returnToZeroButton);
 
+	returnToXYZeroButton.addActionListener(this::returnToXYZeroButton);
+
         resetCoordinatesButton.addActionListener(this::resetCoordinatesButton);
 
         performHomingCycleButton.addActionListener(this::performHomingCycleButton);
@@ -84,6 +87,7 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
         String constraints = "sg 1";
         add(resetCoordinatesButton, constraints);
         add(returnToZeroButton, constraints);
+        add(returnToXYZeroButton, constraints);
         add(softResetMachineControl, constraints);
         add(performHomingCycleButton, constraints);
         add(killAlarmLock, constraints);
@@ -106,6 +110,7 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
     private void updateWorkflowControls(boolean enabled) {
         this.resetCoordinatesButton.setEnabled(enabled);
         this.returnToZeroButton.setEnabled(enabled);
+	this.returnToXYZeroButton.setEnabled(enabled);
         this.performHomingCycleButton.setEnabled(enabled);
         this.softResetMachineControl.setEnabled(enabled);
         this.killAlarmLock.setEnabled(enabled);
@@ -148,6 +153,14 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
     private void returnToZeroButton(java.awt.event.ActionEvent evt) {
         try {
             backend.returnToZero();
+        } catch (Exception ex) {
+            displayErrorDialog(ex.getMessage());
+        }
+    }
+
+    private void returnToXYZeroButton(java.awt.event.ActionEvent evt) {
+        try {
+            backend.returnToXYZero();
         } catch (Exception ex) {
             displayErrorDialog(ex.getMessage());
         }
