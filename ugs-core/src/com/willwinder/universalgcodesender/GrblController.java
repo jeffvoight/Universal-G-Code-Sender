@@ -512,7 +512,7 @@ public class GrblController extends AbstractController {
     @Override
     public void returnToXYHome() throws Exception {
         if (this.isCommOpen()) {
-            ArrayList<String> commands = GrblUtils.getReturnToXYHomeCommands(this.grblVersion, this.grblVersionLetter, this.controllerStatus.getWorkCoord().z);
+            ArrayList<String> commands = GrblUtils.getReturnToXYHomeCommands(this.grblVersion, this.grblVersionLetter);
             if (!commands.isEmpty()) {
                 Iterator<String> iter = commands.iterator();
                 // Perform the homing commands
