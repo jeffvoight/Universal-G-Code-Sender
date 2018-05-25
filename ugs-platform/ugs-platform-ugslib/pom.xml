@@ -148,7 +148,7 @@
         <dependency>
             <groupId>com.willwinder.universalgcodesender</groupId>
             <artifactId>ugs-core</artifactId>
-            <version>${project.version}</version>
+            <version>2.1-Voight-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.netbeans.api</groupId>

@@ -62,9 +62,8 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
     }
 
     private void initComponents() {
-
-	returnToZeroButton.setToolTipText(Localization.getString("mainWindow.swing.returnToZeroButton.tooltip"));
-	returnToXYZeroButton.setToolTipText(Localization.getString("mainWindow.swing.returnToXYZeroButton.tooltip"));
+	returnToZeroButton.setToolTipText(Localization.getString("mainWindow.swing.returnToZeroButton.toolTip"));
+	returnToXYZeroButton.setToolTipText(Localization.getString("mainWindow.swing.returnToXYZeroButton.toolTip"));
 
         helpButtonMachineControl.addActionListener(this::helpButtonMachineControl);
 
