@@ -61,7 +61,7 @@ public class ActionButtonPanel extends JPanel implements UGSEventListener {
     }
 
     private void initComponents() {
-
+        returnToXYZeroButton.setToolTipText("WARNING! This will crash your machine if not homed properly.");
         helpButtonMachineControl.addActionListener(this::helpButtonMachineControl);
 
         softResetMachineControl.addActionListener(this::softResetMachineControl);
